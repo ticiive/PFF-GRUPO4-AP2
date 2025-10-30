@@ -1,0 +1,7 @@
+/* /src/pages/Home.css */
+.home-page .hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: #444;
+  border-radius: 8px;
+}

@@ -1,0 +1,22 @@
+/* ==============================================
+   CSS GLOBAL E HOMEPAGE (MOBILE-FIRST)
+   ============================================== */
+
+/* --- 0. GLOBAIS E RESET --- */
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fustat", sans-serif;
+}
+
+:root {
+  /* ... (suas variáveis de cor) ... */
+}
+
+body {
+  line-height: 1.6;
+}
+
+
+

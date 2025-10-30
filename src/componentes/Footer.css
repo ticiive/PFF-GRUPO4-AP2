@@ -1,0 +1,83 @@
+/* ==============================================
+   CSS DO FOOTER (MOBILE-FIRST)
+   ============================================== */
+
+/* --- 1. BARRA DO FOOTER (BASE - MOBILE) --- */
+.footer-bar {
+    background-color: #0A244E;
+    color: white;
+    padding: 30px 20px; /* Padding menor no mobile */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* --- 2. LINKS SOCIAIS (BASE - MOBILE) --- */
+.social-links {
+    display: flex;
+    gap: 25px; 
+    margin-bottom: 20px; /* Mais espaço no mobile */
+    flex-wrap: wrap; /* Permite quebrarem linha */
+    justify-content: center;
+}
+
+.social-link-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+    text-decoration: none; /* Remove underline (se for um Link) */
+    color: white; /* Garante que o texto seja branco */
+}
+
+/* --- 3. ESTILO DOS ÍCONES (SVG) --- */
+.social-link-item svg {
+    font-size: 20px; /* Tamanho do ícone */
+    color: #ffffff; /* Cor do ícone */
+}
+
+.social-link-item p {
+    color: white;
+    margin: 0;
+}
+
+.copyright {
+    font-size: 12px;
+}
+/* ... (outros estilos do footer) ... */
+
+.footer-bar {
+    background-color: #0A244E; /* Fundo escuro */
+    color: white;
+    /* ... */
+}
+
+.social-link-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+/* ESTA REGRA É A CHAVE */
+.social-link-item svg {
+    font-size: 20px; /* Dá um tamanho ao ícone */
+    color: #ffffff; /* Garante que o ícone seja branco */
+}
+
+/* ... (resto do seu .css) ... */
+
+/* ==============================================
+   ESTILOS DESKTOP (media query min-width)
+   ============================================== */
+@media (min-width: 768px) {
+    .footer-bar {
+        padding: 20px 80px; /* Restaura padding do desktop */
+    }
+    .social-links {
+        gap: 30px; /* Restaura gap do desktop */
+        margin-bottom: 15px;
+    }
+}

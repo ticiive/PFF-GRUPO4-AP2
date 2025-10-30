@@ -1,0 +1,86 @@
+/* ==============================================
+   CSS DA PÁGINA FORM (MOBILE-FIRST)
+   (Estilos dos Campos)
+   ============================================== */
+
+/* Fundo da página */
+.form-page-wrapper {
+    background-color: #F8F9FA; /* Cor de fundo (do seu CSS) */
+}
+
+.panel h2 {
+    margin: 0 0 2rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.panel label {
+    display: block; /* Garante que o label fique em cima */
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.panel input[type="text"],
+.panel input[type="email"],
+.panel select,
+.panel textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #EAEAEA;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.panel textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.choices label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.terms a {
+    color: #FFC72C; /* Amarelo (do seu CSS) */
+    text-decoration: underline;
+}
+
+.btn-form-submit {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1.5rem;
+    background-color: #f2b705; /* Amarelo (do seu CSS) */
+    color: #0c2d57; /* Azul escuro */
+}
+
+.btn-form-submit:hover {
+    background-color: #eab10b;
+}

@@ -1,0 +1,37 @@
+/* ==============================================
+   CSS DO SECTIONITEM (Mobile-First)
+   ============================================== */
+
+/* --- MOBILE (BASE) --- */
+.section-item {
+    margin-bottom: 30px;
+}
+.section-item:last-child {
+    margin-bottom: 0;
+}
+
+.section-item h2 {
+    color: #0A244E; /* Cor azul do seu CSS original */
+    font-size: 24px; /* Fonte menor para mobile */
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.section-item p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* --- DESKTOP (min-width) --- */
+@media (min-width: 768px) {
+    .section-item {
+        margin-bottom: 40px; /* Restaura margem */
+    }
+
+    .section-item h2 {
+        font-size: 30px; /* Restaura fonte */
+        margin-bottom: 20px;
+    }
+}

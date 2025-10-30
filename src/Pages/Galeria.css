@@ -1,0 +1,39 @@
+/* ==============================================
+   CSS DA PÁGINA GALERIA (MOBILE-FIRST)
+   ============================================== */
+
+.galeria-page {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.container-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaço entre os cards (mobile) */
+    align-items: center; 
+}
+
+/* ==============================================
+   ESTILOS DESKTOP (media query min-width)
+   ============================================== */
+@media (min-width: 768px) {
+    .galeria-page {
+        padding: 40px; 
+    }
+    .container-cards {
+        /* AQUI ESTÁ A MUDANÇA: Mais espaço */
+        gap: 60px; /* Era 40px */
+    }
+
+    /* Lógica de alternar */
+    .container-cards .card:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    /* Corrige a margem do IMAGE-WRAPPER no card invertido */
+    .container-cards .card:nth-child(even) .image-wrapper { 
+        margin-left: 0;
+        margin-right: 40px;
+    }
+}

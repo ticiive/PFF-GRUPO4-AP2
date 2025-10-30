@@ -1,0 +1,29 @@
+/* ==============================================
+   CSS DO PAGETITLEBAR (MOBILE-FIRST)
+   ============================================== */
+
+/* --- 1. BARRA DE TÍTULO (MOBILE - BASE) --- */
+.hero-title-bar {
+    background-color: #0A244E;
+    color: white;
+    padding: 30px 20px; /* Padding menor no mobile */
+}
+
+.hero-title-bar h1 {
+    font-size: 28px; /* Fonte menor no mobile */
+    font-weight: 700;
+    margin: 0; /* Remove margem padrão do h1 */
+}
+
+/* ==============================================
+   ESTILOS DESKTOP (media query min-width)
+   ============================================== */
+@media (min-width: 768px) {
+    .hero-title-bar {
+        padding: 40px 80px; /* Padding original do desktop */
+    }
+
+    .hero-title-bar h1 {
+        font-size: 36px; /* Fonte original do desktop */
+    }
+}
