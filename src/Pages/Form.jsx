@@ -1,88 +1,69 @@
 import React, { useState } from 'react';
 
-// (As importações de PageTitleBar, FormSection, Form.css, e as imagens continuam iguais)
+// (Importações dos componentes e CSS continuam iguais)
 import PageTitleBar from '../componentes/PageTitleBar';
 import FormSection from '../componentes/FormSection';
+import CompanyFields from '../componentes/CompanyFields';
+import ProjectFields from '../componentes/ProjectFields';
 import './Form.css'; 
+import '../componentes/FormSection.css'; 
 import imgForm1 from '../assets/image_4edit.png';
 import imgForm2 from '../assets/image 5.png';
 
+// ===================================================================
+// 1. FUNÇÃO AUXILIAR PARA VALIDAR CNPJ (COLOQUE FORA DO COMPONENTE)
+// ===================================================================
+function isValidCNPJ(cnpj) {
+  if (!cnpj) return false;
 
-// --- NOVO COMPONENTE 1: CAMPOS DA EMPRESA ---
-// Este componente recebe o 'formData' e o 'handleChange' como props
-// Ele não será "destruído" a cada re-renderização
-const CompanyFields = ({ formData, handleChange }) => {
-  return (
-    <>
-      <h2><span>Informações da Empresa:</span></h2>
-          
-      <label htmlFor="companyName">Nome da Empresa:</label>
-      <input type="text" id="companyName" name="companyName" placeholder="Ex.: Tech Solutions LTDA" value={formData.companyName} onChange={handleChange} />
+  // Remove caracteres especiais (pontos, barras, traços)
+  const cleanedCnpj = cnpj.replace(/[^\d]+/g, '');
 
-      <label htmlFor="cnpj">CNPJ:</label>
-      <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0001-00" value={formData.cnpj} onChange={handleChange} />
+  // 1. Verifica se tem 14 dígitos
+  if (cleanedCnpj.length !== 14) return false;
 
-      <label htmlFor="email">Email para contato:</label>
-      <input type="email" id="email" name="email" placeholder="contato@empresa.com" value={formData.email} onChange={handleChange} />
+  // 2. Verifica se todos os dígitos são iguais (ex: 11.111.111/1111-11)
+  if (/^(\d)\1+$/.test(cleanedCnpj)) return false;
 
-      <label>Número de colaboradores da empresa:</label>
-      <div className="choices">
-        <label><input type="radio" name="collabs" value="1-10" checked={formData.collabs === '1-10'} onChange={handleChange} /> 1 a 10</label>
-        <label><input type="radio" name="collabs" value="11-20" checked={formData.collabs === '11-20'} onChange={handleChange} /> 11 a 20</label>
-        <label><input type="radio" name="collabs" value="21-50" checked={formData.collabs === '21-50'} onChange={handleChange} /> 21 a 50</label>
-        <label><input type="radio" name="collabs" value="50-100" checked={formData.collabs === '50-100'} onChange={handleChange} /> 50 a 100</label>
-        <label><input type="radio" name="collabs" value="100+" checked={formData.collabs === '100+'} onChange={handleChange} /> Mais que 100</label>
-      </div>
+  // 3. Validação dos Dígitos Verificadores (Lógica do Modulo 11)
+  let size = 12;
+  let sum = 0;
+  let weights = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
-      <label htmlFor="hubs">Está vinculada ao Hubs?</label>
-      <select id="hubs" name="hubs" value={formData.hubs} onChange={handleChange}>
-        <option disabled>Selecione…</option>
-        <option>Sim</option>
-        <option>Não</option>
-      </select>
+  // --- Cálculo do 1º Dígito Verificador ---
+  for (let i = 0; i < size; i++) {
+    sum += parseInt(cleanedCnpj[i]) * weights[i];
+  }
+  let remainder = sum % 11;
+  let dv1 = (remainder < 2) ? 0 : 11 - remainder;
 
-      <label htmlFor="area">Área de atuação:</label>
-      <input type="text" id="area" name="area" placeholder="Ex.: Fintech, Varejo, Educação…" value={formData.area} onChange={handleChange} />
-    </>
-  );
-};
+  // Verifica o 1º dígito
+  if (parseInt(cleanedCnpj[12]) !== dv1) return false;
 
+  // --- Cálculo do 2º Dígito Verificador ---
+  size = 13;
+  sum = 0;
+  weights = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]; // Pesos mudam
 
-// --- NOVO COMPONENTE 2: CAMPOS DO PROJETO ---
-// (Mesma lógica do de cima)
-const ProjectFields = ({ formData, handleChange }) => {
-  return (
-    <>
-      <h2><span>Informações do Projeto:</span></h2>
+  for (let i = 0; i < size; i++) {
+    sum += parseInt(cleanedCnpj[i]) * weights[i];
+  }
+  remainder = sum % 11;
+  let dv2 = (remainder < 2) ? 0 : 11 - remainder;
 
-      <label htmlFor="time">Em quanto tempo você precisa do projeto?</label>
-      <select id="time" name="time" value={formData.time} onChange={handleChange}>
-        <option disabled>Selecione…</option>
-        <option>Urgente (1–2 semanas)</option>
-        <option>Curto prazo (1 mês)</option>
-        <option>Médio prazo (2–3 meses)</option>
-        <option>Sem pressa</option>
-      </select>
+  // Verifica o 2º dígito
+  if (parseInt(cleanedCnpj[13]) !== dv2) return false;
 
-      <label htmlFor="demand">Tipo de demanda:</label>
-      <input type="text" id="demand" name="demand" placeholder="Ex.: Front-end, Back-end, Landing Page, Dados…" value={formData.demand} onChange={handleChange} />
-
-      <label htmlFor="description">Descrição do projeto:</label>
-      <textarea id="description" name="description" placeholder="Descreva o escopo, requisitos e referências" value={formData.description} onChange={handleChange}></textarea>
-
-      <label className="terms">
-        <input type="checkbox" id="terms" name="terms" checked={formData.terms} onChange={handleChange} /> Eu concordo com os <a href="#">Termos de uso</a>
-      </label>
-
-      <button type="submit" className="btn-form-submit">Enviar</button>
-    </>
-  );
-};
+  // Se passou em tudo, é válido
+  return true;
+}
 
 
-// --- COMPONENTE PRINCIPAL (A PÁGINA) ---
+// ===================================================================
+// O COMPONENTE PRINCIPAL DA PÁGINA
+// ===================================================================
 const Form = () => {
-  // (O useState, handleChange, e handleSubmit continuam EXATAMENTE IGUAIS)
+  // (O useState e o handleChange continuam iguais)
   const [formData, setFormData] = useState({
     companyName: '',
     cnpj: '',
@@ -104,33 +85,59 @@ const Form = () => {
     }));
   };
 
+  // ===================================================================
+  // 2. O 'handleSubmit' ATUALIZADO COM AS NOVAS VALIDAÇÕES
+  // ===================================================================
   const handleSubmit = (e) => {
     e.preventDefault(); 
-    // ... (sua lógica de validação) ...
     let errors = [];
+
+    // --- Validações de campos vazios (que já tínhamos) ---
     if (formData.companyName.trim() === '') errors.push('O nome da empresa é obrigatório.');
-    // ... etc ...
+    if (formData.hubs === 'Selecione…') errors.push('Selecione se a empresa está vinculada ao Hubs.');
+    if (formData.area.trim() === '') errors.push('A área de atuação é obrigatória.');
+    if (formData.time === 'Selecione…') errors.push('Selecione o prazo do projeto.');
+    if (formData.demand.trim() === '') errors.push('O tipo de demanda é obrigatório.');
+    if (formData.description.trim() === '') errors.push('A descrição do projeto é obrigatória.');
+    if (formData.collabs === '') errors.push('Selecione o número de colaboradores.');
+    if (!formData.terms) errors.push('Você deve concordar com os Termos de Uso.');
+    
+    // --- NOVAS VALIDAÇÕES (CNPJ) ---
+    if (formData.cnpj.trim() === '') {
+      errors.push('O CNPJ é obrigatório.');
+    } else if (!isValidCNPJ(formData.cnpj)) { // <-- Valida o formato
+      errors.push('O CNPJ informado é inválido.');
+    }
+
+    // --- NOVAS VALIDAÇÕES (E-mail) ---
+    // Expressão regular simples para e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (formData.email.trim() === '') {
+      errors.push('O e-mail para contato é obrigatório.');
+    } else if (!emailRegex.test(formData.email)) { // <-- Valida o formato
+      errors.push('O e-mail informado é inválido.');
+    }
+
+    // --- Exibe os erros ou o sucesso ---
     if (errors.length > 0) {
       alert('Por favor, corrija os seguintes erros:\n\n' + errors.join('\n'));
     } else {
       alert('Formulário enviado com sucesso!');
+      console.log('Dados enviados:', formData);
     }
   };
 
+  // (O JSX do 'return' continua exatamente o mesmo)
   return (
     <div className="form-page-wrapper">
       <PageTitleBar title="Formulário" />
       
       <form onSubmit={handleSubmit}>
         
-        {/* --- SEÇÃO 1: EMPRESA --- */}
-        {/* Agora passamos o NOVO componente como children */}
         <FormSection image={imgForm1} imageAlt="Profissional da empresa">
           <CompanyFields formData={formData} handleChange={handleChange} />
         </FormSection>
 
-        {/* --- SEÇÃO 2: PROJETO --- */}
-        {/* E passamos o outro NOVO componente aqui */}
         <FormSection image={imgForm2} imageAlt="Profissional satisfeito com projeto" reverse={true}>
           <ProjectFields formData={formData} handleChange={handleChange} />
         </FormSection>
