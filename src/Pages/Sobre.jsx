@@ -2,7 +2,7 @@ import React from 'react';
 
 // 1. Importe os componentes
 import PageTitleBar from '../componentes/PageTitleBar';
-import SectionItem from '../componentes/Sectionitem';
+import SectionItem from '../componentes/SectionItem';
 
 // 2. Importe o CSS da página
 import './Sobre.css'; 
