@@ -6,9 +6,9 @@ import Header from './componentes/Header';
 import Footer from './componentes/Footer';
 
 // Importe suas páginas
-import Home from './pages/Home.jsx';
+import Home from './Pages/Home.jsx';
 import Galeria from './Pages/Galeria.jsx';
-import Sobre from './pages/Sobre.jsx';
+import Sobre from './Pages/Sobre.jsx';
 import Form from './Pages/Form.jsx';
 
 function App() {
