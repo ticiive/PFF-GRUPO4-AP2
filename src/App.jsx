@@ -6,10 +6,10 @@ import Header from './componentes/Header';
 import Footer from './componentes/Footer';
 
 // Importe suas páginas
-import Home from './pages/Home';
-import Galeria from './Pages/Galeria';
-import Sobre from './pages/Sobre';
-import Form from './Pages/Form';
+import Home from './pages/Home.jsx';
+import Galeria from './Pages/Galeria.jsx';
+import Sobre from './pages/Sobre.jsx';
+import Form from './Pages/Form.jsx';
 
 function App() {
   return (
