@@ -1,11 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-// Importe seus componentes de layout
 import Header from './componentes/Header';
 import Footer from './componentes/Footer';
 
-// Importe suas páginas
+
 import Home from './Pages/Home.jsx';
 import Galeria from './Pages/Galeria.jsx';
 import Sobre from './Pages/Sobre.jsx';
@@ -14,7 +12,6 @@ import Form from './Pages/Form.jsx';
 function App() {
   return (
     <BrowserRouter>
-      {/* Header e Footer ficam FORA das rotas para aparecerem sempre */}
       <Header />
       
       <main>

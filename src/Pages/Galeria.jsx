@@ -1,17 +1,9 @@
 import React from 'react';
-
-// 1. Importe os componentes da página
 import PageTitleBar from '../componentes/PageTitleBar';
-import ProjectCard from '../componentes/ProjectCard'; // O novo componente
-
-// 2. Importe o CSS da página
+import ProjectCard from '../componentes/ProjectCard'; 
 import './Galeria.css'; 
-
-// 3. Importe sua imagem (coloque-a em /src/assets)
-// (Seu JS usa "./Mídia/imagemGaleria.png", então eu assumi que é esta)
 import imgGaleriaPadrao from '../assets/imagemGaleria.png'; 
 
-// 4. Mova o array 'projetos' do seu galeria.js para cá
 const projetos = [
   {
     nomeProjeto: "Projeto sem nome",
@@ -48,16 +40,10 @@ const projetos = [
 const Galeria = () => {
   return (
     <>
-      {/* Componente 1: A barra de título azul */}
       <PageTitleBar title="Galeria de Projetos" />
       
       <main className="galeria-page">
         <div id="dv" className="container-cards">
-          
-          {/* 5. A MÁGICA DO REACT:
-              Mapeia o array 'projetos' e renderiza 
-              um componente ProjectCard para cada item.
-          */}
           {projetos.map((projeto, index) => (
             <ProjectCard 
               key={index} 

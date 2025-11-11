@@ -1,5 +1,4 @@
 import React from 'react';
-// (Importe o CSS dele se ainda não o fez)
 import './FormSection.css'; 
 
 const FormSection = ({ image, imageAlt, reverse = false, children }) => {

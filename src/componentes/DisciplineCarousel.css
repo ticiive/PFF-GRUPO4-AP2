@@ -1,9 +1,4 @@
-/* ==============================================
-   CSS DO DISCIPLINECAROUSEL (MOBILE-FIRST)
-   ============================================== */
 
-/* --- 1. SEÇÃO (MOBILE - BASE) --- */
-/* (Esta parte está correta e não mudou) */
 .disextenc {
     background-color: #F5AC00;
     padding: 40px 0;
@@ -27,11 +22,9 @@
     max-width: 700px; 
     position: relative;
 }
-/* Botões de seta escondidos no mobile */
 .botao-carrossel {
     display: none;
 }
-/* Lógica do carrossel mobile (fade) */
 .principal {
     display: block; 
     width: 100%;
@@ -58,8 +51,6 @@
 }
 .principal .titulo h3 { margin: 0; font-size: 22px; color: #333; }
 .principal .txt { padding: 25px; color: #555; line-height: 1.6; text-align: left; }
-
-/* Pontinhos de navegação (Mobile) */
 .carousel-dots {
     display: flex;
     justify-content: center;
@@ -77,10 +68,6 @@
     transition: opacity 0.3s ease;
 }
 .dot.active { opacity: 1; }
-
-/* ==============================================
-   ESTILOS DESKTOP (Layout Carrossel Original)
-   ============================================== */
 @media (min-width: 900px) {
 
     .disextenc {
@@ -90,24 +77,18 @@
         font-size: 40px;
         margin-bottom: 40px;
     }
-
-    /* O container vira relativo (como no seu CSS original) */
     .carrossel-container {
         position: relative;
         padding: 0 40px;
     }
-    
-    /* O wrapper do card fica no centro */
     .card-wrapper {
         width: 100%;
         max-width: 700px; 
         z-index: 10;
     }
-
-    /* Botões APARECEM e são POSICIONADOS ABSOLUTAMENTE */
     .botao-carrossel {
         display: block;
-        position: absolute; /* <-- LÓGICA ORIGINAL */
+        position: absolute; 
         top: 50%;
         transform: translateY(-50%);
         z-index: 5; 
@@ -124,18 +105,14 @@
     }
 
     .botao-carrossel.esquerda {
-        left: 40px; /* Posição ajustada (0 fica colado) */
+        left: 40px; 
     }
     .botao-carrossel.direita {
-        right: 40px; /* Posição ajustada */
+        right: 40px;
     }
-
-    /* Ajustes no card para desktop */
     .principal .titulo { padding: 25px; }
     .principal .titulo h3 { font-size: 26px; }
     .principal .txt { padding: 35px; }
-
-    /* ESCONDE os pontinhos no desktop */
     .carousel-dots {
         display: none;
     }

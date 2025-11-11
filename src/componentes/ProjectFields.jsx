@@ -1,6 +1,4 @@
 import React from 'react';
-
-// Este componente também recebe 'formData' e 'handleChange'
 const ProjectFields = ({ formData, handleChange }) => {
   return (
     <>

@@ -1,9 +1,4 @@
-/* ==============================================
-   CSS DO FORMSECTION (MOBILE-FIRST)
-   (Layout Corrigido)
-   ============================================== */
 
-/* --- 1. SEÇÃO (MOBILE - BASE) --- */
 .band {
     position: relative;
     padding: 40px 0;
@@ -29,19 +24,15 @@
     margin: 0 auto;
     padding: 0 20px;
 }
-
-/* --- 2. LAYOUT (MOBILE - BASE: EMPILHADO) --- */
 .band__row {
     display: flex;
-    flex-direction: column; /* Padrão: Imagem, depois Painel */
+    flex-direction: column; 
     gap: 0;
     position: relative;
     z-index: 1;
 }
-
-/* AQUI A 1ª MUDANÇA: Inverte a ordem da Seção 2 no mobile */
 .band__row--2 {
-    /* O HTML é [Painel], [Imagem], mas visualmente será [Imagem], [Painel] */
+
     flex-direction: column-reverse; 
 }
 
@@ -53,8 +44,6 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     flex: 1;
     width: 100%;
-    
-    /* AQUI A 2ª MUDANÇA: Painel sempre na frente */
     position: relative;
     z-index: 2; 
 }
@@ -63,8 +52,6 @@
     flex: 1;
     margin: 0;
     width: 100%;
-    
-    /* AQUI A 3ª MUDANÇA: Imagem sempre atrás */
     position: relative; 
     z-index: 1; 
 }
@@ -77,17 +64,10 @@
     border-radius: 12px;
 }
 
-/* AQUI A 4ª MUDANÇA: A lógica de sobreposição é SÓ no painel */
 .band__row--1 .panel,
 .band__row--2 .panel {
-    margin-top: -50px; /* O painel (que está por cima) é puxado para cima */
+    margin-top: -50px; 
 }
-
-
-/* ==============================================
-   ESTILOS DESKTOP (media query min-width)
-   (Esta parte está correta e não mudou)
-   ============================================== */
 @media (min-width: 900px) {
     .band {
         padding: 80px 0;
@@ -98,8 +78,6 @@
         align-items: center;
         gap: 2rem;
     }
-    
-    /* Reseta a inversão do mobile */
     .band__row--2 {
         flex-direction: row;
     }
@@ -112,8 +90,6 @@
         height: 100%;
         object-fit: cover;
     }
-
-    /* Reseta os hacks de empilhamento do mobile */
     .band__row--1 .panel,
     .band__row--2 .panel {
         margin-top: 0;

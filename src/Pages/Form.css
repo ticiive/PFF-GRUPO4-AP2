@@ -1,9 +1,4 @@
-/* ==============================================
-   CSS DA PÁGINA FORM (MOBILE-FIRST)
-   (Estilos dos Campos)
-   ============================================== */
 
-/* Fundo da página */
 .form-page-wrapper {
     background-color: #F8F9FA; /* Cor de fundo (do seu CSS) */
 }
@@ -16,7 +11,7 @@
 }
 
 .panel label {
-    display: block; /* Garante que o label fique em cima */
+    display: block; 
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
 }
@@ -63,7 +58,7 @@
 }
 
 .terms a {
-    color: #FFC72C; /* Amarelo (do seu CSS) */
+    color: #FFC72C; 
     text-decoration: underline;
 }
 
@@ -77,8 +72,8 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 1.5rem;
-    background-color: #f2b705; /* Amarelo (do seu CSS) */
-    color: #0c2d57; /* Azul escuro */
+    background-color: #f2b705;
+    color: #0c2d57; 
 }
 
 .btn-form-submit:hover {

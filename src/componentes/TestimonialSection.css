@@ -1,33 +1,28 @@
-/* ==============================================
-   CSS DO TESTIMONIALSECTION (MOBILE-FIRST)
-   ============================================== */
 
-/* --- 1. Container Principal (Mobile - Base) --- */
 .testimonial-section {
     width: 100%;
     padding: 40px 20px;
-    background-color: #f8f9fa; /* Fundo claro para a seção */
+    background-color: #f8f9fa; 
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column; /* MOBILE: Empilhado */
-    align-items: center; /* MOBILE: Centralizado */
+    flex-direction: column; 
+    align-items: center; 
     gap: 40px;
 }
 
-/* --- 2. Conteúdo da Esquerda (Mobile - Base) --- */
 .text-content {
     flex: 1;
     min-width: 300px;
     width: 100%;
-    text-align: center; /* MOBILE: Centralizado */
+    text-align: center; 
 }
 
 .text-content h1 {
-    font-size: 36px; /* Fonte menor no mobile */
+    font-size: 36px; 
     font-weight: 700;
     color: #212529;
     margin-bottom: 20px;
@@ -51,13 +46,12 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    text-decoration: none; /* Adicionado para o <Link> */
+    text-decoration: none; 
 }
 .cta-button:hover {
     background-color: #e0a800;
 }
 
-/* --- 3. Carrossel da Direita (Mobile - Base) --- */
 .carousel-wrapper {
     flex: 1.2; 
     width: 100%;
@@ -65,21 +59,18 @@
 }
 
 .carousel-container {
-    overflow: hidden; /* Essencial para o carrossel */
+    overflow: hidden; 
     width: 100%;
 }
 
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Animação do slide */
+    transition: transform 0.5s ease-in-out; 
 }
 
-/* --- 4. Card de Depoimento (Mobile - Base) --- */
 .testimonial-card {
-    flex: 0 0 100%; /* MOBILE: 1 card por vez */
+    flex: 0 0 100%; 
     margin: 0; 
-    
-    /* (Estilos do seu CSS original) */
     background-color: #0d2a4a; 
     color: #ffffff;
     border-radius: 12px;
@@ -88,7 +79,6 @@
     flex-direction: column;
     justify-content: space-between;
 }
-/* (O .active não é mais necessário, a lógica de 'transform' cuida disso) */
 
 .card-content {
     padding: 40px 35px;
@@ -133,8 +123,6 @@
     color: #adb5bd;
     margin: 0;
 }
-
-/* --- 5. Controles (Mobile - Base) --- */
 .carousel-controls {
     display: flex;
     justify-content: space-between;
@@ -142,13 +130,11 @@
     margin-top: 20px;
     padding: 0 10px;
 }
-/* (Estilos dos dots, se você adicionar) */
 .dots-container { display: flex; }
 
 .arrows-container {
     display: flex;
     gap: 10px;
-    /* Centraliza as setas no mobile */
     width: 100%;
     justify-content: center;
 }
@@ -167,10 +153,6 @@
     background-color: #343a40;
     color: #ffffff;
 }
-
-/* ==============================================
-   ESTILOS DESKTOP (Layout Lado-a-Lado)
-   ============================================== */
 @media (min-width: 992px) {
     .container {
         flex-direction: row; 
@@ -185,15 +167,11 @@
     .text-content h1 {
         font-size: 48px; 
     }
-
-    /* O BLOCO .carousel-track FOI EMBORA. */
-    /* ISSO CORRIGE O ERRO "LARANJA". */
-
     .testimonial-card {
-        flex: 0 0 48%; /* DESKTOP: 2 cards por vez */
-        margin: 0 1%; /* Espaçamento entre os 2 cards */
+        flex: 0 0 48%; 
+        margin: 0 1%; 
     }
-    
+
     .arrows-container {
         width: auto;
         justify-content: flex-end;

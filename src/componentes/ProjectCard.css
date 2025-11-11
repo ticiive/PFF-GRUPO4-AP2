@@ -1,49 +1,35 @@
-/* ==============================================
-   CSS DO PROJECTCARD (MOBILE-FIRST)
-   ============================================== */
 
-/* --- 1. CARD (MOBILE - BASE: LAYOUT HORIZONTAL) --- */
 .card {
     display: flex;
-    flex-direction: row; /* <-- MUDANÇA: Agora é linha por padrão */
-    align-items: center; /* Centraliza o ícone e o texto verticalmente */
+    flex-direction: row;
+    align-items: center; 
     background-color: #fff3da; 
     width: 100%;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    /* Remove o overflow: visible do mobile, ele é só para o desktop */
     overflow: hidden; 
 }
-
-/* --- 2. TEXTO (MOBILE - BASE) --- */
 .texto {
-    flex: 1; /* Ocupa o espaço principal */
+    flex: 1; 
     text-align: left;
     font-size: 15px;
     color: #222;
-    /* Damos um espaço para o ícone/imagem */
     padding-right: 15px;
 }
 .texto h3 { 
     margin-bottom: 10px; 
     color: #002855;
-    font-size: 18px; /* Dando mais ênfase ao título */
+    font-size: 18px; 
 }
-
-/* --- 3. WRAPPER DA IMAGEM (MOBILE - BASE: "ÍCONE") --- */
 .image-wrapper {
     position: relative; 
-    flex-shrink: 0; /* Impede que o ícone encolha */
-    
-    /* MUDANÇA: Tamanho de "ícone" */
+    flex-shrink: 0; 
     width: 80px; 
     height: 80px; 
     
-    margin-top: 0; /* Reseta o margin-top */
+    margin-top: 0; 
 }
-
-/* --- 4. QUADRADO AZUL (MOBILE - BASE) --- */
 .image-wrapper .background-square {
     position: absolute;
     width: 100%; 
@@ -54,8 +40,6 @@
     left: 0;
     z-index: 1; 
 }
-
-/* --- 5. IMAGEM (MOBILE - BASE) --- */
 .imagem {
     width: 80%; 
     height: 80%;
@@ -68,11 +52,6 @@
     transform: translate(-50%, -50%);
     z-index: 2;
 }
-
-/* ==============================================
-   ESTILOS DESKTOP (Layout "Vazado" que você gostou)
-   (Esta parte permanece igual)
-   ============================================== */
 @media (min-width: 900px) { 
 
     .card {
@@ -81,33 +60,27 @@
         padding: 40px;
         min-height: 220px;
         position: relative; 
-        overflow: visible; /* <-- Devolve o overflow no desktop */
+        overflow: visible; 
     }
 
     .texto {
         flex: 1;
-        padding-right: 360px; /* Espaço para a imagem "flutuante" */
-        font-size: 16px; /* Restaura tamanho da fonte */
+        padding-right: 360px; 
+        font-size: 16px; 
     }
     .texto h3 {
-        font-size: 20px; /* Restaura tamanho do título */
+        font-size: 20px; 
     }
-
-    /* --- WRAPPER DA IMAGEM (DESKTOP) --- */
     .image-wrapper {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         right: 40px; 
-        
-        /* Restaura os tamanhos do desktop */
         width: 300px;
         height: 240px;
         
         margin-top: 0;
     }
-
-    /* --- NTH-CHILD(EVEN) - A LÓGICA INVERTIDA --- */
     .container-cards .card:nth-child(even) .texto {
         padding-right: 0; 
         padding-left: 360px; 

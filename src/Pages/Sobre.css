@@ -1,20 +1,16 @@
-/* ==============================================
-   CSS DA PÁGINA SOBRE (Mobile-First)
-   ============================================== */
 
-/* --- MOBILE (BASE) --- */
 .content-section {
     display: flex;
-    flex-direction: column; /* Mobile: empilhado (texto em cima, imagem embaixo) */
+    flex-direction: column; 
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px; /* Padding mobile */
+    padding: 40px 20px; 
     gap: 40px;
 }
 
 .text-container {
     flex: 1;
-    min-width: 0; /* Correção para flexbox */
+    min-width: 0; 
 }
 
 .image-container {
@@ -27,23 +23,21 @@
     height: auto;
     display: block;
     object-fit: cover;
-    max-height: 400px; /* Limita a altura da imagem no mobile */
+    max-height: 400px;
     border-radius: 8px;
 }
-
-/* --- DESKTOP (min-width) --- */
 @media (min-width: 1000px) {
     .content-section {
-        flex-direction: row; /* Desktop: lado a lado */
+        flex-direction: row; 
         padding: 60px 80px;
         gap: 80px;
     }
 
     .image-container {
-        max-width: 500px; /* Limita a largura da imagem no desktop */
+        max-width: 500px; 
     }
     
     .team-image {
-        max-height: none; /* Remove o limite de altura */
+        max-height: none; 
     }
 }

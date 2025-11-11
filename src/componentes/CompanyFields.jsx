@@ -1,6 +1,4 @@
 import React from 'react';
-
-// Este componente recebe 'formData' (os valores) e 'handleChange' (a função)
 const CompanyFields = ({ formData, handleChange }) => {
   return (
     <>

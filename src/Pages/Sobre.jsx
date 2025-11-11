@@ -1,16 +1,8 @@
 import React from 'react';
-
-// 1. Importe os componentes
 import PageTitleBar from '../componentes/PageTitleBar';
 import SectionItem from '../componentes/SectionItem';
-
-// 2. Importe o CSS da página
 import './Sobre.css'; 
-
-// 3. Importe a imagem (coloque ela na pasta /src/assets)
 import teamImage from '../assets/image 3.png'; 
-
-// 4. Dados para os componentes (do seu HTML original)
 const sections = [
   { 
     title: "Por que escolher a ibmec?", 
@@ -29,14 +21,10 @@ const sections = [
 const Sobre = () => {
   return (
     <>
-      {/* Componente 1: A barra de título azul */}
       <PageTitleBar title="Sobre nós" />
       
       <main className="content-section">
-        
-        {/* Coluna da Esquerda: O texto */}
         <div className="text-container">
-          {/* 5. Mapeia os dados e cria 3 componentes SectionItem */}
           {sections.map(section => (
             <SectionItem 
               key={section.title} 
@@ -45,8 +33,6 @@ const Sobre = () => {
             />
           ))}
         </div>
-
-        {/* Coluna da Direita: A imagem */}
         <div className="image-container">
           <img src={teamImage} alt="Equipe ibmec trabalhando" className="team-image" />
         </div>
