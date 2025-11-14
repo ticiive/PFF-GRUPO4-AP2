@@ -33,11 +33,6 @@ function isValidCNPJ(cnpj) {
   sum = 0;
   weights = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]; 
 
-  for (let i = 0; i < size; i++) {
-    sum += parseInt(cleanedCnpj[i]) * weights[i];
-  }
-  remainder = sum % 11;
-  let dv2 = (remainder < 2) ? 0 : 11 - remainder;
 
   if (parseInt(cleanedCnpj[13]) !== dv2) return false;
 
