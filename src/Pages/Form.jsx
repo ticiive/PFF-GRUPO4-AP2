@@ -10,33 +10,10 @@ import imgForm2 from '../assets/image 5.png';
 
 function isValidCNPJ(cnpj) {
   if (!cnpj) return false;
-
-  const cleanedCnpj = cnpj.replace(/[^\d]+/g, '');
-
-  if (cleanedCnpj.length !== 14) return false;
-
-  if (/^(\d)\1+$/.test(cleanedCnpj)) return false;
-
-  let size = 12;
-  let sum = 0;
-  let weights = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
-
-  for (let i = 0; i < size; i++) {
-    sum += parseInt(cleanedCnpj[i]) * weights[i];
-  }
-  let remainder = sum % 11;
-  let dv1 = (remainder < 2) ? 0 : 11 - remainder;
-
-  if (parseInt(cleanedCnpj[12]) !== dv1) return false;
-
-  size = 13;
-  sum = 0;
-  weights = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]; 
-
-
-  if (parseInt(cleanedCnpj[13]) !== dv2) return false;
-
-  return true;
+  const cleanedMask = cnpj.replace(/[\.\/\-]/g, '');
+  if (cleanedMask.trim() === '') return false;
+  const onlyNumbersRegex = /^\d+$/;
+  return onlyNumbersRegex.test(cleanedMask);
 }
 
 const Form = () => {
