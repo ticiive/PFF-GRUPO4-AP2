@@ -69,6 +69,18 @@ const Form = () => {
     } else {
       alert('Formulário enviado com sucesso!');
       console.log('Dados enviados:', formData);
+      setFormData({
+        companyName: '',
+        cnpj: '',
+        email: '',
+        collabs: '',
+        hubs: 'Selecione…',
+        area: '',
+        time: 'Selecione…',
+        demand: '',
+        description: '',
+        terms: false
+      });
     }
   };
 
